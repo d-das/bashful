@@ -1,0 +1,7 @@
+#!/bin/bash
+
+URL='https://www.google.com/?gws_rd=ssl#q='
+QUERY=$(echo '' | rofi -dmenu -p "Search:")
+if [ -n "$QUERY" ]; then
+    firefox -new-window "${URL}${QUERY}" 2> /dev/null 
+fi

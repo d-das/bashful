@@ -1,0 +1,10 @@
+#! /bin/sh
+# test script for creating and moving directories
+
+echo "enter directory name"
+read dirName
+
+mkdir "$dirName";
+cd "$dirName";
+
+echo "test" > newfile.txt

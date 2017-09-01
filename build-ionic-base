@@ -1,0 +1,26 @@
+#! /bin/sh
+# Script to initialize ionic framework.
+# Acepts project name & type
+
+echo "Please enter the name of your new bitchin app:"
+read projectName
+echo "Please enter the type of foundation you would like:"
+echo "Options include:"
+echo "tabs, blank, sidemenu, super, conference, tutorial, aws"
+read projectType
+
+ionic start "$projectName" "$projectType";
+cd "$projectName";
+
+ionic cordova platform add android
+ionic cordova platform add ios
+ionic cordova plugin add cordova-sqlite-storage --save
+ionic cordova plugin add cordova-plugin-statusbar --save
+npm install @ionic-native/status-bar --save
+ionic cordova plugin add cordova-plugin-splashscreen --save
+npm install @ionic-native/splash-screen --save
+ionic cordova plugin add ionic-plugin-keyboard --save
+npm install @ionic-native/keyboard --save
+ionic cordova plugin add cordova-plugin-whitelist --save
+ionic cordova plugin add cordova-plugin-crosswalk-webview --save
+ionic cordova plugin add https://github.com/driftyco/cordova-plugin-wkwebview-engine.git --save
