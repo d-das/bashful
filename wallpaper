@@ -1,0 +1,4 @@
+
+wallpaper="/home/dbac/wallpaper.jpg"
+
+feh --bg-fill $wallpaper
