@@ -1,0 +1,4 @@
+#!/bin/bash
+DATE=`date '+%Y-%m-%d %H:%M:%S'`
+
+gnome-screenshot -d 5 -f /home/dbac/pictures/screenshots/${DATE}.png
