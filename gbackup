@@ -1,0 +1,4 @@
+#! /bin/bash
+export GOOGLE_DRIVE_SETTINGS=~/.duplicity/credentials
+duplicity --exclude-filelist ~/.duplicity/ignore ~/ gdocs://jdawsonweehunt@gmail.com/booksync
+
