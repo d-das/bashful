@@ -1,0 +1,201 @@
+# Constants
+set $mod Mod4
+
+# blacks
+set $base00 #1F2324
+
+set $base01 #1F2324
+
+set $base02 #1F2324
+# light blue-grey
+set $base03 #586e75
+# light-grey
+set $base04 #C0C5CE
+set $base05 #d1d4e0
+set $base06 #C9CCDB
+# white
+set $base07 #93a1a1
+# pink
+set $base08 #ee829f
+# salmon
+set $base09 #f99170
+# light skin
+set $base0A #ffefcc
+# main bluel
+set $base0B #5591EB
+# less baby blue
+set $base0C #97e0ff
+# matte blue
+set $base0D #97bbf7
+# light purpcdle
+set $base0E #c0b7f9
+# pink salmon
+set $base0F #C23A38
+# General Configuration
+#font pango:System San Francisco Display 10
+
+  font pango: Ubuntu Regular 18
+  floating_modifier $mod
+  #hide_edge_borders both
+  #new_window none
+  #smart_borders on
+  #gaps inner 0
+  #gaps outer 0
+
+# Window-Related Bindings
+  bindsym $mod+Shift+q kill
+  bindsym $mod+h focus left
+  bindsym $mod+j focus down
+  bindsym $mod+k focus up
+  bindsym $mod+l focus right
+  bindsym $mod+Shift+h move left
+  bindsym $mod+Shift+j move down
+  bindsym $mod+Shift+k move up
+  bindsym $mod+Shift+l move right
+  bindsym $mod+Shift+space floating toggle
+  bindsym $mod+f fullscreen toggle
+  bindsym $mod+e layout toggle split
+  bindsym $mod+s layout stacking
+  bindsym $mod+t layout tabbed
+  bindsym $mod+b split h
+  bindsym $mod+v split v
+
+  #bindsym $mod+space focus mode_toggle
+  bindsym $mod+r mode "  "
+  mode "  " {
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+    bindsym Escape mode "default"
+  }
+
+# Restart-Related Bindings
+  bindsym $mod+Shift+o reload
+  bindsym $mod+Shift+r restart
+
+# Program-Related Bindings
+  bindsym $mod+shift+f exec firefox
+  bindsym $mod+shift+g exec google-chrome
+  bindsym $mod+shift+s exec spotify
+  bindsym $mod+shift+a exec atom
+  bindsym $mod+shift+t exec start-tor-browser.desktop
+  bindsym $mod+shift+n exec note.AppImage
+
+#  bindsym $mod+shift+m exec rhthymbox
+#  bindsym $mod+shift+c exec codelite
+  bindsym $mod+Return exec i3-sensible-terminal
+  bindsym $mod+shift+p exec scrot-2
+#  bindsym $mod+space exec rofi -show run -opacity "85" -fullscreen -bw 0 -padding 300
+  bindsym $mod+space exec rofi -show run
+  #bindsym $mod+space exec rofi -show run -width 100 -padding 300 -opacity "30"
+  bindsym $mod+Shift+Return exec $HOME/bin/bashful/rofi-search
+  bindsym $mod+Shift+w exec $HOME/bin/bashful/wolfram-search
+  bindsym $mod+Shift+i exec $HOME/bin/bashful/wiki-search
+#  bindsym --release Print exec imgur-screenshot
+  bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+#lock
+bindsym $mod+shift+x execi3lock -c 000000
+#bindsym $mod+shift+x execi3lock -i ~/wallpaper.png
+#bindsym $mod+shift+x exec i3lock -i /home/debac/wallpaper.jpg -c '#000000' -o '#191d0f' -w '#572020' -l '#ffffff' -e
+
+
+
+# Volume & Media Bindings
+#bindsym XF86AudioLowerVolume exec --no-startup-id pulseaudio-ctl down
+bindsym $mod+o exec pactl set-sink-volume 0 -5%
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pulseaudio-ctl up
+bindsym $mod+p exec pactl set-sink-volume 0 +5%
+bindsym $mod+i exec pactl set-sink-mute 0 toggle
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+#brightness
+bindsym F9 exec xbacklight -inc 20 # increase screen brightness
+bindsym F8 exec xbacklight -dec 20 # decrease screen brightness
+
+
+# Startup Programs
+# Restore GNOME's settings
+exec --no-startup-id /usr/libexec/gnome-settings-daemon-localeexec
+# Fix a bug in gnome-settings-daemon: http://feeding.cloud.geek.nz/posts/creating-a-modern-tiling-desktop-environment-using-i3/
+exec --no-startup-id dconf write /org/gnome/settings-daemon/plugins/cursor/active false
+#compton
+exec --no-startup-id compton
+exec --no-startup-id wallpaper
+#wifi
+exec --no-startup-id nm-applet
+#Start desktop applications
+exec --no-startup-id load_layouts.sh
+#Fix pulse bug
+exec --no-startup-id fixpulsebug.sh
+
+# Workspace-Related Bindings
+  bindsym $mod+1 workspace 1
+  bindsym $mod+2 workspace 2
+  bindsym $mod+3 workspace 3
+  bindsym $mod+4 workspace 4
+  bindsym $mod+5 workspace 5
+  bindsym $mod+6 workspace 6
+  bindsym $mod+7 workspace 7
+  bindsym $mod+8 workspace 8
+  bindsym $mod+9 workspace 9
+  bindsym $mod+0 workspace 10
+
+  bindsym $mod+Shift+1 move container to workspace 1
+  bindsym $mod+Shift+2 move container to workspace 2
+  bindsym $mod+Shift+3 move container to workspace 3
+  bindsym $mod+Shift+4 move container to workspace 4
+  bindsym $mod+Shift+5 move container to workspace 5
+  bindsym $mod+Shift+6 move container to workspace 6
+  bindsym $mod+Shift+7 move container to workspace 7
+  bindsym $mod+Shift+8 move container to workspace 8
+  bindsym $mod+Shift+9 move container to workspace 9
+  bindsym $mod+Shift+0 move container to workspace 10
+
+
+
+
+
+
+# Windows
+  new_window 1pixel
+#  hide_edge_borders vertical
+
+# Widow Colours
+#                         border  background text    indicator
+  client.focused          $base03 $base03    $base02 $base07
+  client.focused_inactive $base02 $base02    $base03 $base0B
+  client.unfocused        $base02 $base02    $base03 $base07
+  client.urgent           $base02 $base08    $base00 $base07
+
+# Bar
+  bar {
+	status_command i3blocks
+  #  font pango: System San Francisco Display, FontAwesome 9
+    #status_command i3status
+    #status_command SCRIPT_DIR=~/.scripts i3blocks
+   # status_command i3blocks -c /home/dbac/.i3blocks.conf
+   # position bottom
+   # strip_workspace_numbers yes
+   # height 25
+   # bindsym button4 nop
+   # bindsym button5 nop
+
+#    status_command i3status
+#    tray_output primary
+
+#    colors {
+#      separator $base03
+#      background $base01
+#      statusline $base05
+#                        border  background text
+#      focused_workspace  $base01 $base01    $base07
+#      active_workspace   $base01 $base02    $base0B
+#      inactive_workspace $base01 $base01    $base03
+#      urgent_workspace   $base01 $base01    $base08
+#    }
+  }
