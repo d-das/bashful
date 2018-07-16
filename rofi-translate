@@ -1,5 +1,5 @@
 #!/bin/bash
-URL='https://translate.google.com/#auto/es/'
+URL='https://translate.google.com/#es/en/'
 QUERY=$(echo '' | rofi -dmenu -p "Translate")
 if [ -n "$QUERY" ]; then
     firefox -new-window "${URL}${QUERY}" 2> /dev/null 
