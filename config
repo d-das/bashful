@@ -56,7 +56,7 @@ set $base0F #C23A38
   bindsym $mod+f fullscreen toggle
   bindsym $mod+e layout toggle split
   bindsym $mod+s layout stacking
-  bindsym $mod+t layout tabbed
+  bindsym $mod+a layout tabbed
   bindsym $mod+b split h
   bindsym $mod+v split v
 
@@ -79,20 +79,14 @@ set $base0F #C23A38
   bindsym $mod+shift+g exec google-chrome
   bindsym $mod+shift+s exec spotify
   bindsym $mod+shift+a exec atom
-  bindsym $mod+shift+t exec start-tor-browser.desktop
   bindsym $mod+shift+n exec note.AppImage
-
-#  bindsym $mod+shift+m exec rhthymbox
-#  bindsym $mod+shift+c exec codelite
   bindsym $mod+Return exec i3-sensible-terminal
   bindsym $mod+shift+p exec scrot-2
-#  bindsym $mod+space exec rofi -show run -opacity "85" -fullscreen -bw 0 -padding 300
   bindsym $mod+space exec rofi -show run
-  #bindsym $mod+space exec rofi -show run -width 100 -padding 300 -opacity "30"
   bindsym $mod+Shift+Return exec $HOME/bin/bashful/rofi-search
   bindsym $mod+Shift+w exec $HOME/bin/bashful/wolfram-search
   bindsym $mod+Shift+i exec $HOME/bin/bashful/wiki-search
-#  bindsym --release Print exec imgur-screenshot
+  bindsym $mod+shift+t exec $HOME/bin/bashful/rofi-translate
   bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 #lock
