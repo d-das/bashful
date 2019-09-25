@@ -2,4 +2,4 @@
 DATE=`date +%Y%m%d%H%M%S`
 PICNAME="${DATE}.png"
 
-gnome-screenshot -d 2 -f /home/dbac/pictures/screenshots/${PICNAME}
+gnome-screenshot -f /home/dbac/pictures/screenshots/${PICNAME}

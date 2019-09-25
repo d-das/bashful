@@ -1,0 +1,21 @@
+#!/bin/bash
+QUERY=$(echo '' | rofi -dmenu -p "search")
+
+if [[ ${QUERY:0:1} == "g" ]];
+	then
+		URL='https://www.google.com/?gws_rd=ssl#q='
+		firefox -new-window "${URL}${QUERY:2}" 2> /dev/null;
+elif [[ ${QUERY:0:1} == "t" ]];
+	then
+		URL='https://translate.google.com/#es/en/'
+		firefox -new-window "${URL}${QUERY:2}" 2> /dev/null;
+elif [[ ${QUERY:0:2} == "wi" ]];
+	then
+		URL='https://en.wikipedia.org/wiki/'
+		firefox -new-window "${URL}${QUERY:3}" 2> /dev/null;
+elif [[ ${QUERY:0:2} == "wr" ]];
+	then
+		URL='https://www.wolframalpha.com/input/?i='
+		firefox -new-window "${URL}${QUERY:3}" 2> /dev/null;
+else echo 0;
+fi
